@@ -1,11 +1,61 @@
 <form [formGroup]="addChildForm" (ngSubmit)="onSubmit()">
-    <h2>Ihr Kind anmelden!</h2>
-    <input placeholder="Name" type="input" formControlName="name"><br />
-    <input placeholder="Geburtsdatum" type="date" formControlName="birthDate"><br />
-    <select formControlName="kindergardenId">
-        <option value="" disabled>Bitte auswählen</option>
-        <option *ngFor="let kindergarden of storeService.kindergardens" [ngValue]="kindergarden.id">
-            {{kindergarden.name}}, {{kindergarden.address}}</option>
-    </select>
-    <button type="submit">Erfassen</button>
+  <h2>Ihr Kind anmelden!</h2>
+  
+  <!-- Name -->
+ <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name">
+    <mat-error *ngIf="addChildForm.get('name').hasError('required')">Name is required.</mat-error>
+    <mat-error *ngIf="addChildForm.get('name').hasError('minlength')">Name must be at least 3 characters long.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Geburtsdatum bitte einstellen</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="birthDate">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="addChildForm.get('birthDate').hasError('futureDate')">Geburtstag kann nicht in der Zukunft sein.</mat-error>
+  </mat-form-field>
+
+  <!-- KindergardenId -->
+  <mat-form-field appearance="fill">
+    <mat-label>Kindergarten</mat-label>
+    <mat-select formControlName="kindergardenId">
+      <mat-option value="" disabled>Bitte auswählen</mat-option>
+      <mat-option *ngFor="let kindergarden of storeService.kindergardens" [value]="kindergarden.id">
+        {{kindergarden.name}}, {{kindergarden.address}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="addChildForm.get('kindergardenId').hasError('required')">Kindergarten bitte auswählen.</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Erfassen</button>
 </form>
+
+<div *ngIf="successMessage" class="alert alert-success" role="alert">
+  {{ successMessage }}
+</div>
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">INFO</h4>
+          <button type="button" class="btn-close" (click)="closeModel()" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+            <div id="modalMessage"></div>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" (click)="closeModel()" data-bs-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>

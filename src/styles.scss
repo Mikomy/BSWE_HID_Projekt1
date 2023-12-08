@@ -1,2 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.css"
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import "~bootstrap/dist/css/bootstrap.css";
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* 100% der Bildschirmhöhe */
+    background: linear-gradient(to bottom, #ffffff 40%, #b3d9ff 60%);
+  }

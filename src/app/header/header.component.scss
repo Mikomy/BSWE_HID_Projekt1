@@ -1,3 +1,59 @@
 .flex {
     display: flex;
 }
+.spacer {
+    flex: 1 1 auto;
+  }
+
+  .toolbar-with-image {
+    margin-bottom: 50px; 
+  }
+  
+  .mat-toolbar {
+    color: black; 
+    background-color:  transparent;
+  }
+
+  .center-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:  transparent !important;
+  }
+  
+  .logo {
+    width: 200px; /* Ändern Sie die Breite nach Bedarf */
+    height: auto; /* Behält das Seitenverhältnis bei */
+  }
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #ffffff;
+  }
+  
+  /* Stile für den Hamburger-Menü-Button */
+  .menu-button {
+    display: none; /* Standardmäßig ausgeblendet */
+    cursor: pointer;
+  }
+  
+  /* Stile für das Hauptmenü */
+  .menu-items {
+    display: flex;
+    gap: 20px;
+  }
+  
+ 
+  @media screen and (max-width: 768px) {
+    /* Verberge das Hauptmenü bei kleinen Bildschirmen */
+    .menu-items {
+      display: none;
+    }
+  
+    /* Zeige den Hamburger-Menü-Button */
+    .menu-button {
+      display: block;
+    }
+  }

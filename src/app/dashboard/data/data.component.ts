@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BackendService } from 'src/app/shared/backend.service';
-import { CHILDREN_PER_PAGE } from 'src/app/shared/constants';
+import { CHILDREN_PER_PAGE } from '../../shared/constants'; 
 import { StoreService } from 'src/app/shared/store.service';
 
 @Component({
@@ -14,6 +14,8 @@ export class DataComponent implements OnInit {
   @Input() currentPage!: number;
   @Output() selectPageEvent = new EventEmitter<number>();
   public page: number = 0;
+
+  public CHILDREN_PER_PAGE: number = CHILDREN_PER_PAGE;  
 
   ngOnInit(): void {
     this.backendService.getChildren(this.currentPage);
