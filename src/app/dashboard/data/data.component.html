@@ -17,17 +17,26 @@
         <div class="col border-green">{{getAge(child.birthDate)}}</div>
         <div class="col border-green">{{child.birthDate | date:'longDate'}}</div>
         <div class="col border-green">
-            <button (click)="cancelRegistration(child.id)">Kind abmelden</button>
+            <button class="cancel-button" (click)="cancelRegistration(child.id)">Kind abmelden</button>
         </div>
     </div>
 
     <div class="row justify-content-end">
-        <mat-paginator [length]="storeService.childrenTotalCount" [pageSize]="CHILDREN_PER_PAGE" [pageIndex]="currentPage - 1"
+        <mat-paginator 
+            [length]="storeService.childrenTotalCount" 
+            [pageSize]="CHILDREN_PER_PAGE" 
+            [pageIndex]="currentPage - 1"
             (page)="selectPage($event.pageIndex)">
         </mat-paginator>
-        <div class="col-2 text-right">
-            <button mat-button *ngIf="currentPage < returnAllPages()" (click)="selectPage(returnAllPages() - 1)">Letzte Seite</button>
+        
+        <div class="custom-paginator-controls">
+            <button mat-button *ngIf="currentPage > 1" (click)="selectPage(0)">First Page</button>
+            <button mat-button *ngIf="currentPage > 1" (click)="selectPage(currentPage - 2)">Previous Page</button>
+            <button mat-button *ngIf="currentPage < returnAllPages() - 1" (click)="selectPage(currentPage)">Next Page</button>
+            <button mat-button *ngIf="currentPage < returnAllPages() - 1" (click)="selectPage(returnAllPages() - 1)">Last Page</button>
         </div>
     </div>
+
+ 
 </div>
 

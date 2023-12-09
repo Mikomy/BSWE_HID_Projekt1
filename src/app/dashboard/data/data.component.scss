@@ -4,6 +4,7 @@ button.active {
 
 .border-green {
     border: none;
+    background-color: transparent !important;
 }
 
 .header-row .col {
@@ -12,11 +13,46 @@ button.active {
 
 .data-row .col {
     border-top: 1px solid green;
+    background-color: transparent !important;
 }
 
-.text-right .col{
-    text-align: right;}
+.text-right {
+    text-align: right;
+    background-color: transparent !important;
+}
 
-    .mat-paginator {
-        background-color: transparent !important;
-      }
+ .row {
+    background-color: transparent !important;
+   }
+.cancel-button {
+    background-color: #918787;
+    color: whitesmoke;
+    padding: 3px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+}
+.paginator {
+    background-color: transparent;
+}
+
+.paginator button {
+    background-color: white;
+    margin: 0 5px;
+    border: 1px solid green;
+    border-radius: 5px;
+}
+
+.paginator mat-paginator {
+    background-color: transparent;
+}
+
+.paginator mat-form-field {
+    margin-top: 10px;
+}
+.mat-paginator {
+    margin-left: auto;
+}
