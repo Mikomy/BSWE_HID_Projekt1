@@ -3,6 +3,8 @@ import { BackendService } from 'src/app/shared/backend.service';
 import { CHILDREN_PER_PAGE } from '../../shared/constants'; 
 import { StoreService } from 'src/app/shared/store.service';
 
+
+
 @Component({
   selector: 'app-data',
   templateUrl: './data.component.html',
@@ -44,6 +46,19 @@ export class DataComponent implements OnInit {
 
   public cancelRegistration(childId: string) {
     this.backendService.deleteChildData(childId, this.currentPage);
+  }
+  navigateToPage(pageNumber: number) {
+    if (pageNumber >= 0 && pageNumber < this.returnAllPages()) {
+      this.selectPage(pageNumber);
+    }
+  }
+
+  goToFirstPage() {
+    this.navigateToPage(0);
+  }
+
+  goToLastPage() {
+    this.navigateToPage(this.returnAllPages() - 1);
   }
 }
 

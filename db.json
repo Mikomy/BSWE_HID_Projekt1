@@ -1,12 +1,6 @@
 {
   "childs": [
     {
-      "id": "_iL775j",
-      "name": "Nicole Fitsch 1",
-      "birthDate": "2021-07-04",
-      "kindergardenId": 1
-    },
-    {
       "id": "_iL77oo",
       "name": "Viktor Sachs 3",
       "birthDate": "2022-06-04",
@@ -73,54 +67,6 @@
       "id": "hlQAqAD"
     },
     {
-      "name": "g",
-      "kindergardenId": 1,
-      "birthDate": "4444-04-04",
-      "id": "G-Pyp-E"
-    },
-    {
-      "name": "g",
-      "kindergardenId": 1,
-      "birthDate": "4444-04-04",
-      "id": "8hnW0Kt"
-    },
-    {
-      "name": "g",
-      "kindergardenId": 1,
-      "birthDate": "4444-04-04",
-      "id": "c9X015y"
-    },
-    {
-      "name": "g",
-      "kindergardenId": 1,
-      "birthDate": "4444-04-04",
-      "id": "KVSIskX"
-    },
-    {
-      "name": "4",
-      "kindergardenId": 1,
-      "birthDate": "0044-04-04",
-      "id": "fDWg6xa"
-    },
-    {
-      "name": "4",
-      "kindergardenId": 1,
-      "birthDate": "0044-04-04",
-      "id": "trXi488"
-    },
-    {
-      "name": "4",
-      "kindergardenId": 1,
-      "birthDate": "0044-04-04",
-      "id": "1t_B6gK"
-    },
-    {
-      "name": "4",
-      "kindergardenId": 1,
-      "birthDate": "0044-04-04",
-      "id": "9xDFCtb"
-    },
-    {
       "name": "Bernadet Wagner",
       "kindergardenId": 2,
       "birthDate": "2020-03-22",
@@ -146,54 +92,6 @@
     },
     {
       "name": "Bernadet Wagner",
-      "kindergardenId": 3,
-      "birthDate": "2020-05-05",
-      "id": "U6Tyj_Q"
-    },
-    {
-      "name": "Bernadet Wagner",
-      "kindergardenId": 3,
-      "birthDate": "2020-05-05",
-      "id": "vSobmEG"
-    },
-    {
-      "name": "Bernadet Wagner",
-      "kindergardenId": 3,
-      "birthDate": "2020-05-05",
-      "id": "6yqfEAs"
-    },
-    {
-      "name": "Bernadet Wagner",
-      "kindergardenId": 4,
-      "birthDate": "2020-05-05",
-      "id": "I_qLe6R"
-    },
-    {
-      "name": "Bernadet Wagner",
-      "kindergardenId": 4,
-      "birthDate": "2020-05-05",
-      "id": "OKUZb19"
-    },
-    {
-      "name": "Bernadet Wagner",
-      "kindergardenId": 4,
-      "birthDate": "2020-05-05",
-      "id": "TNVpq7s"
-    },
-    {
-      "name": "Bernadet Wagner",
-      "kindergardenId": 4,
-      "birthDate": "2020-05-05",
-      "id": "zwtegsb"
-    },
-    {
-      "name": "Bernadet Wagner",
-      "kindergardenId": 4,
-      "birthDate": "2020-05-05",
-      "id": "hXhRzFq"
-    },
-    {
-      "name": "Bernadet Wagner",
       "kindergardenId": 4,
       "birthDate": "2020-05-05",
       "id": "3V2xElp"
@@ -214,25 +112,7 @@
       "name": "Nicole Kidman",
       "kindergardenId": 3,
       "birthDate": "2929-04-04",
-      "id": "BUKAK-h"
-    },
-    {
-      "name": "Nicole Kidman",
-      "kindergardenId": 3,
-      "birthDate": "2929-04-04",
       "id": "40e5yDW"
-    },
-    {
-      "name": "Nicole Kidman",
-      "kindergardenId": 3,
-      "birthDate": "2929-04-04",
-      "id": "_cbSI6M"
-    },
-    {
-      "name": "Nicole Kidman",
-      "kindergardenId": 3,
-      "birthDate": "2929-04-04",
-      "id": "_tZNfVw"
     },
     {
       "name": "Johann Burt",
@@ -245,18 +125,6 @@
       "kindergardenId": 5,
       "birthDate": "2020-02-02",
       "id": "Zu9a0bQ"
-    },
-    {
-      "name": "Bernadet Wagner",
-      "kindergardenId": 4,
-      "birthDate": "2020-02-20",
-      "id": "Hwrld__"
-    },
-    {
-      "name": "Bernadet Wagner",
-      "kindergardenId": 4,
-      "birthDate": "44444-02-20",
-      "id": "74uVJcW"
     },
     {
       "name": "Duglas Fast",
@@ -275,12 +143,6 @@
       "kindergardenId": 2,
       "birthDate": "2020-04-04",
       "id": "GAC79rN"
-    },
-    {
-      "name": "Bernadet Wagner Kindergarden der Stadt Wien, Audorfgasse 20, 1210 Wien",
-      "kindergardenId": 4,
-      "birthDate": "2020-02-22",
-      "id": "N9j-dzx"
     },
     {
       "name": "Karin Waldorf",
@@ -305,6 +167,30 @@
       "kindergardenId": 1,
       "birthDate": "2020-12-17T23:00:00.000Z",
       "id": "XfzM9kF"
+    },
+    {
+      "name": "Csilla Varro",
+      "kindergardenId": 5,
+      "birthDate": "2020-12-13T23:00:00.000Z",
+      "id": "HEMG7yT"
+    },
+    {
+      "name": "Karina Mayer ",
+      "kindergardenId": 4,
+      "birthDate": "2020-12-27T23:00:00.000Z",
+      "id": "mNYrfBB"
+    },
+    {
+      "name": "Bernadett Herz",
+      "kindergardenId": 4,
+      "birthDate": "2020-12-13T23:00:00.000Z",
+      "id": "jxtgUbF"
+    },
+    {
+      "name": "Bettina Herz",
+      "kindergardenId": 4,
+      "birthDate": "2020-12-26T23:00:00.000Z",
+      "id": "Bp-SpoV"
     }
   ],
   "kindergardens": [

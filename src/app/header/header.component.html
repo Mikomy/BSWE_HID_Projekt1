@@ -1,15 +1,19 @@
 <mat-toolbar color="primary" class="toolbar-with-image">
-    <span class="toolbar-title">{{ title }}</span>
-    <span class="center-image"><img width="500" src="{{ imagePath }}" alt="Logo">&nbsp;&nbsp;</span>
-    <span class="spacer"></span>
-    <button mat-button [routerLink]="['/dashboard']">Dashboard</button>
-    <button mat-button [routerLink]="['/about']">About</button>
-  </mat-toolbar>
+  <div class="grid-container">
+    <span class="col-4 toolbar-title">{{ title }}</span> 
+    <span class="col-3 center-image"><img width="500" src="{{ imagePath }}" alt="Logo"></span>
+  </div>
+</mat-toolbar>
   
   <div class="navbar">
-    <div class="menu-button">&#9776;</div>
-    <div class="menu-items">
-      <button routerLink="/dashboard">Dashboard</button>
-      <button routerLink="/about">About</button>
+    <div class="menu-button" (click)="toggleMenu()">&#9776;</div>
+    <div class="menu-items" id="menuItems">
+        <button routerLink="/dashboard">STARTSEITE</button>
+        <button routerLink="/about">AKTUELLES</button>
+        <button routerLink="/about">KINDERGÄRTEN ENTDECKEN</button>
+        <button routerLink="/about">ANMELDUNG</button>
+        <button routerLink="/about">FINANZEN</button>
+        <button routerLink="/about">KONTAKT</button>
+        <button routerLink="/about">HILFE UND SUPPORT</button>
     </div>
-  </div>
+</div>

@@ -1,42 +1,36 @@
 <div class="container">
-    <!-- Header row -->
     <div class="row header-row">
-        <div class="col border-green">Name</div>
-        <div class="col border-green">Kindergarden</div>
-        <div class="col border-green">Adresse</div>
-        <div class="col border-green">Alter</div>
-        <div class="col border-green">Geburtsdatum</div>
-        <div class="col border-green"></div>
+        <div class="col-2 border-green">Name</div>
+        <div class="col-3 border-green">Kindergarden</div>
+        <div class="col-2 border-green">Adresse</div>
+        <div class="col-1 border-green">Alter</div>
+        <div class="col-2 border-green">Geburtsdatum</div>
+        <div class="col-2 border-green"></div>
     </div>
 
-    <!-- Data rows -->
+
     <div class="row data-row" *ngFor="let child of storeService.children">
-        <div class="col border-green">{{child.name}}</div>
-        <div class="col border-green">{{child.kindergarden.name}}</div>
-        <div class="col border-green">{{child.kindergarden.address}}</div>
-        <div class="col border-green">{{getAge(child.birthDate)}}</div>
-        <div class="col border-green">{{child.birthDate | date:'longDate'}}</div>
-        <div class="col border-green">
+        <div class="col-2 ">{{child.name}}</div>
+        <div class="col-3 n">{{child.kindergarden.name}}</div>
+        <div class="col-2 ">{{child.kindergarden.address}}</div>
+        <div class="col-1 ">{{getAge(child.birthDate)}}</div>
+        <div class="col-2 ">{{child.birthDate | date:'longDate'}}</div>
+        <div class="col-2  text-end">
             <button class="cancel-button" (click)="cancelRegistration(child.id)">Kind abmelden</button>
         </div>
     </div>
 
-    <div class="row justify-content-end">
-        <mat-paginator 
-            [length]="storeService.childrenTotalCount" 
-            [pageSize]="CHILDREN_PER_PAGE" 
-            [pageIndex]="currentPage - 1"
-            (page)="selectPage($event.pageIndex)">
-        </mat-paginator>
-        
-        <div class="custom-paginator-controls">
-            <button mat-button *ngIf="currentPage > 1" (click)="selectPage(0)">First Page</button>
-            <button mat-button *ngIf="currentPage > 1" (click)="selectPage(currentPage - 2)">Previous Page</button>
-            <button mat-button *ngIf="currentPage < returnAllPages() - 1" (click)="selectPage(currentPage)">Next Page</button>
-            <button mat-button *ngIf="currentPage < returnAllPages() - 1" (click)="selectPage(returnAllPages() - 1)">Last Page</button>
+    <div class="row">
+        <div class="col">
+            <mat-paginator 
+                [length]="storeService.childrenTotalCount" 
+                [pageSize]="CHILDREN_PER_PAGE" 
+                [pageIndex]="currentPage - 1"
+                (page)="selectPage($event.pageIndex)"
+                [showFirstLastButtons]="true">
+                class="custom-paginator">
+            </mat-paginator>
         </div>
-    </div>
+      </div>
 
- 
-</div>
-
+      

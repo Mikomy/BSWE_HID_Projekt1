@@ -59,7 +59,8 @@ closeModel() {
         this.addChildForm.reset();
         setTimeout(() => {
           this.successMessage = '';
-        }, 5000);
+          this.closeModel();
+        }, 3000);
     }
   }
   }

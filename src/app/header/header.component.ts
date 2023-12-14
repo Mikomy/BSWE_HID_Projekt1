@@ -15,4 +15,12 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  toggleMenu(): void {
+    var menu = document.getElementById("menuItems");
+
+    if (menu) {
+        menu.style.display = (menu.style.display === "flex" || menu.style.display === "") ? "none" : "flex";
+    }
 }
+}
+
