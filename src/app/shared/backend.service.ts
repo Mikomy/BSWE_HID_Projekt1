@@ -79,4 +79,20 @@ export class BackendService {
           })
         );
     }
+    public filterChildrenByKindergarten(kindergartenId: string, page: number): Observable<Child[]> {
+      const params = new HttpParams()
+        .set('_expand', 'kindergarden')
+        .set('_page', page.toString())
+        .set('_limit', CHILDREN_PER_PAGE.toString())
+        .set('kindergardenId', kindergartenId);
+    
+      return this.http.get<ChildResponse[]>('http://localhost:5000/childs', { params, observe: 'response' })
+        .pipe(
+          map(data => {
+            this.storeService.children = data.body!;
+            this.storeService.childrenTotalCount = Number(data.headers.get('X-Total-Count'));
+            return data.body!; // Return the array of Child
+          })
+        );
+    }
   }

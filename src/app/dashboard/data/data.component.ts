@@ -32,7 +32,8 @@ export class DataComponent implements OnInit, AfterViewInit {
 
   dataSource = new MatTableDataSource<Child>([]);
   displayedColumns: string[] = ['nameColumn', 'kindergartenNameColumn', 'kindergartenAddressColumn', 'ageColumn', 'actionsColumn'];
-  
+  selectedKindergartenId: string | null = null;
+
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
 
   ngOnInit(): void {
@@ -107,13 +108,27 @@ export class DataComponent implements OnInit, AfterViewInit {
     this.navigateToPage(this.returnAllPages() - 1);
   }
 
-  filter(event: any) {
+  filterByName(event: any) {
     const filterValue = event.target.value.trim().toLowerCase();
-  
-    // Assuming you have a filterChildren method in your backend service
+    
+    // Filtern nach Namen
     this.backendService.filterChildren(filterValue, this.currentPage).subscribe((data) => {
       this.dataSource.data = data;
     });
+  }
+  
+  filterByKindergarten() {
+    // Filtern nach Kindergarten
+    if (this.selectedKindergartenId) {
+      this.backendService.filterChildrenByKindergarten(this.selectedKindergartenId, this.currentPage).subscribe((data) => {
+        this.dataSource.data = data;
+      });
+    } else {
+      // Wenn kein Kindergarten ausgewählt ist, zeige alle Kinder
+      this.backendService.getChildren(this.currentPage).subscribe((data) => {
+        this.dataSource.data = data;
+      });
+    }
   }
 }
 

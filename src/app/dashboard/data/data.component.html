@@ -1,9 +1,19 @@
 <div class="container">
-  
-    <mat-form-field>
+
+  <mat-form-field class="filter-field">
+    <input matInput (keyup)="filterByName($event)" placeholder="Filter nach Namen">
+  </mat-form-field>
+
+  <mat-form-field class="filter-field">
+    <mat-label>Kindergarten filtern</mat-label>
+    <mat-select [(ngModel)]="selectedKindergartenId" (ngModelChange)="filterByKindergarten()">
+      <mat-option value="">Alle Kindergärten</mat-option>
+      <mat-option *ngFor="let kindergarden of storeService.kindergardens" [value]="kindergarden.id">
+        {{kindergarden.name}}, {{kindergarden.address}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
       
-      <input matInput (keyup)="filter($event)" placeholder="filter">
-    </mat-form-field>
     <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
   
       <!-- Header Row -->
