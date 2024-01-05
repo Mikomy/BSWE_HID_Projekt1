@@ -49,7 +49,6 @@ export class BackendService {
     public sortChildren(page: number, column: string, isAscending: boolean) {
       const url = 'http://localhost:5000/childs';
       
-      // Prepare query parameters
       const params = new HttpParams()
         .set('_expand', 'kindergarden')
         .set('_page', page.toString())
@@ -57,7 +56,7 @@ export class BackendService {
         .set('_sort', column)
         .set('_order', isAscending ? 'asc' : 'desc');
   
-      // Make the HTTP request to fetch sorted children
+    
       this.http.get<ChildResponse[]>(url, { params, observe: 'response' }).subscribe(data => {
         this.storeService.children = data.body!;
         this.storeService.childrenTotalCount = Number(data.headers.get('X-Total-Count'));
