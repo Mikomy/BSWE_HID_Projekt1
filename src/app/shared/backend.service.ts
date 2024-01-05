@@ -1,9 +1,12 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Kindergarden } from './interfaces/Kindergarden';
 import { StoreService } from './store.service';
 import { Child, ChildResponse } from './interfaces/Child';
 import { CHILDREN_PER_PAGE } from './constants';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators'; 
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,13 +21,17 @@ export class BackendService {
     });
   }
 
-  public getChildren(page: number) {
-    this.http.get<ChildResponse[]>(`http://localhost:5000/childs?_expand=kindergarden&_page=${page}&_limit=${CHILDREN_PER_PAGE}`, { observe: 'response' }).subscribe(data => {
-      this.storeService.children = data.body!;
-      this.storeService.childrenTotalCount = Number(data.headers.get('X-Total-Count'));
-
-    });
-    }
+  public getChildren(page: number, sortBy?: string, sortOrder?: string): Observable<Child[]> {
+    const sortParams = sortBy && sortOrder ? `&_sort=${sortBy}&_order=${sortOrder}` : '';
+    return this.http.get<ChildResponse[]>(`http://localhost:5000/childs?_expand=kindergarden&_page=${page}&_limit=${CHILDREN_PER_PAGE}${sortParams}`, { observe: 'response' })
+      .pipe(
+        map(data => {
+          this.storeService.children = data.body!;
+          this.storeService.childrenTotalCount = Number(data.headers.get('X-Total-Count'));
+          return data.body!; // Return the array of Child
+        })
+      );
+  }
 
     public addChildData(child: Child, page:  number) {
       this.http.post('http://localhost:5000/childs', child).subscribe(_ => {
@@ -32,9 +39,44 @@ export class BackendService {
       })
     }
 
-    public deleteChildData(childId: string, page: number) {
-      this.http.delete(`http://localhost:5000/childs/${childId}`).subscribe(_=> {
-        this.getChildren(page);
-      })
+  
+
+    public deleteChildData(childId: string, page: number): Observable<void> {
+      return this.http.delete(`http://localhost:5000/childs/${childId}`, { observe: 'response' })
+        .pipe(map(response => undefined));
+    }
+
+    public sortChildren(page: number, column: string, isAscending: boolean) {
+      const url = 'http://localhost:5000/childs';
+      
+      // Prepare query parameters
+      const params = new HttpParams()
+        .set('_expand', 'kindergarden')
+        .set('_page', page.toString())
+        .set('_limit', CHILDREN_PER_PAGE.toString())
+        .set('_sort', column)
+        .set('_order', isAscending ? 'asc' : 'desc');
+  
+      // Make the HTTP request to fetch sorted children
+      this.http.get<ChildResponse[]>(url, { params, observe: 'response' }).subscribe(data => {
+        this.storeService.children = data.body!;
+        this.storeService.childrenTotalCount = Number(data.headers.get('X-Total-Count'));
+      });
+    }
+    public filterChildren(filterValue: string, page: number): Observable<Child[]> {
+      const params = new HttpParams()
+        .set('_expand', 'kindergarden')
+        .set('_page', page.toString())
+        .set('_limit', CHILDREN_PER_PAGE.toString())
+        .set('q', filterValue); // Add a query parameter for filtering
+    
+      return this.http.get<ChildResponse[]>('http://localhost:5000/childs', { params, observe: 'response' })
+        .pipe(
+          map(data => {
+            this.storeService.children = data.body!;
+            this.storeService.childrenTotalCount = Number(data.headers.get('X-Total-Count'));
+            return data.body!; // Return the array of Child
+          })
+        );
     }
   }
