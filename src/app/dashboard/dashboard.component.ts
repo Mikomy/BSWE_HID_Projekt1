@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,6 +10,8 @@ export class DashboardComponent {
   public currentPage: number = 1;
   public showAddData = true;
 
+  constructor(private router: Router) {}
+
   receiveMessage(newPageCount: number) {
     this.currentPage = newPageCount;
   }
@@ -17,4 +20,7 @@ export class DashboardComponent {
     this.showAddData = showAddData;
   }
 
+  exploreKindergartens() {
+    this.router.navigate(['/kindergarten-list']);
+  }
 }

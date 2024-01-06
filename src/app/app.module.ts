@@ -22,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
+import {KindergartenListComponent} from './kindergarten-list/kindergarten-list.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import {MatSortModule} from '@angular/material/sort';
     DataComponent,
     HeaderComponent,
     ButtonComponent,
+    KindergartenListComponent,
     PaginationPipe
   ],
   imports: [
