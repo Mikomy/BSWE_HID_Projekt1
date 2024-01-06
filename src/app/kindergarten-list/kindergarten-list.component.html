@@ -1,15 +1,17 @@
-
-<h2>Kindergarten List</h2>
-
-<div *ngFor="let kindergarten of kindergartens" class="kindergarten-item">
-  <div>
-    <img [src]="kindergarten.photoUrl" alt="{{ kindergarten.name }} Photo" class="kindergarten-photo">
-  </div>
-  <div class="kindergarten-details">
-    <h3>{{ kindergarten.name }}</h3>
-    <p>{{ kindergarten.address }}</p>
-    <p>{{ kindergarten.betreiber }}</p>
-    <!-- Weitere Details hinzufügen, falls erforderlich -->
-    <a [routerLink]="['/kindergartens', kindergarten.id]">Details anzeigen</a>
+<div class="kindergarten-list">
+  <h2 class="title">Kindergarten List</h2>
+  <div class="empty-row"></div>
+  <p></p>
+  <div class="kindergarten-container"></div>
+  <div *ngFor="let kindergarten of kindergartens" class="kindergarten-item">
+    <div>
+      <img [src]="kindergarten.photoUrl" alt="{{ kindergarten.name }} Photo" class="kindergarten-photo">
+    </div>
+    <div class="kindergarten-details">
+      <h3>{{ kindergarten.name }}</h3>
+      <p>{{ kindergarten.address }}</p>
+      <p>{{ kindergarten.betreiber }}</p>
+      <a [routerLink]="['/kindergartens', kindergarten.id]">Details anzeigen</a>
+    </div>
   </div>
 </div>

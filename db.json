@@ -215,21 +215,24 @@
       "name": "Kindergarden der Stadt Wien",
       "address": "Audorfgasse 20, 1210 Wien",
       "betreiber": "MA 10 - Wiener Kindergärten",
-      "typ": 2
+      "typ": 2,
+      "photoUrl": "assets/images/kindergarten3.jpg"
     },
     {
       "id": 4,
       "name": "Kindergarden der Stadt Wien",
       "address": "Moßbachergasse 20-24, 1140 Wien",
       "betreiber": "MA 10 - Wiener Kindergärten",
-      "typ": 2
+      "typ": 2,
+      "photoUrl": "assets/images/kindergarten4.jpg"
     },
     {
       "id": 5,
       "name": "Montessori Kinderhaus Wien 1",
       "address": "Nußdorferstraße 6, 1090 Wien",
       "betreiber": "Montessori Kinderhaus Wien",
-      "typ": 1
+      "typ": 1,
+      "photoUrl": "assets/images/kindergarten5.jpg"
     }
   ]
 }
