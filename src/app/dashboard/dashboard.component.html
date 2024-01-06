@@ -1,4 +1,18 @@
-<app-data [currentPage]="currentPage" (selectPageEvent)="receiveMessage($event)"></app-data>
-<br>
-<app-button [showAddData]="showAddData" (toggleButtonClickEvent)="toggleButtonClicked($event)"></app-button>
-<app-add-data *ngIf="showAddData" [currentPage]="currentPage"></app-add-data>
+<div class="welcome-container">
+    <div class="text-container">
+      <h1>Willkommen in unserer Welt des Kindergartens</h1>
+     
+    </div>
+    <div class="image-container">
+      <img  src="assets/images/willkommen.jpeg" alt="Willkommen" class="welcome-image">
+    </div>
+  </div>
+
+  <div class="empty-row"></div>
+
+  <div>
+    <h2 class="einschreibung-title">Kindergarteneinschreibung</h2>
+    <h3 class="einschreibung"> Die Kindergarteneinschreibung erfolgt jeweils von ca. Dezember bis Jänner 
+    (genaues Datum wird vorher durch Plakate und im Amtsblatt "Wiener Neustädter 
+    Nachrichten" bekanntgegeben) für den darauffolgenden September.</h3>
+  </div>

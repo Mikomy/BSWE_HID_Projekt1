@@ -4,12 +4,12 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { DataComponent } from './dashboard/data/data.component';
-import { AddDataComponent } from './dashboard/add-data/add-data.component';
+import { LoginComponent } from './login/login.component';
+import { DataComponent } from './login/data/data.component';
+import { AddDataComponent } from './login/add-data/add-data.component';
 import { HeaderComponent } from './header/header.component';
-import { ButtonComponent } from './dashboard/button/button.component';
-import { PaginationPipe } from './dashboard/data/pagination.pipe';
+import { ButtonComponent } from './login/button/button.component';
+import { PaginationPipe } from './login/data/pagination.pipe';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -23,12 +23,14 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {KindergartenListComponent} from './kindergarten-list/kindergarten-list.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
+    LoginComponent,
     AddDataComponent,
     DataComponent,
     HeaderComponent,
