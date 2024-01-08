@@ -6,7 +6,7 @@ import {KindergartenListComponent} from './kindergarten-list/kindergarten-list.c
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: DashboardComponent },
   { path: 'login', component: LoginComponent },
   { path: 'kindergarten-list', component: KindergartenListComponent },
   { path: 'dashboard', component: DashboardComponent },
