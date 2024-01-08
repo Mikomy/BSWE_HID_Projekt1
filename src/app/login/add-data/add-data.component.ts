@@ -46,7 +46,9 @@ closeModel() {
     return selectedDate > currentDate ? { futureDate: true } : null;
   }
 
+  public formSubmitted: boolean = false;
   onSubmit() {
+    this.formSubmitted = true;
     if (this.addChildForm.valid) {
       const birthDate = this.addChildForm.get('birthDate')!.value;
       if (this.futureDateValidator({ value: birthDate }) !== null) {
@@ -56,12 +58,17 @@ closeModel() {
         // Andernfalls, Daten hinzufügen und Erfolgsnachricht ausgeben
         this.backendService.addChildData(this.addChildForm.value, this.currentPage);
         this.openModel('Kind ist angemeldet!');
-        this.addChildForm.reset();
+        this.formSubmitted = false;
+        this.addChildForm.markAsPristine();
+        this.addChildForm.markAsUntouched();
+         this.addChildForm.reset();
         setTimeout(() => {
           this.successMessage = '';
           this.closeModel();
         }, 3000);
+       
     }
+   
   }
   }
 }

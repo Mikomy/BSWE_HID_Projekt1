@@ -1,32 +1,33 @@
-<form [formGroup]="addChildForm" (ngSubmit)="onSubmit()">
-  <h2>Ihr Kind anmelden!</h2>
+<form [formGroup]="addChildForm" (ngSubmit)="onSubmit()" #childForm="ngForm">
+  <h2>Kindergartenanmeldung</h2>
   
   <!-- Name -->
  <mat-form-field appearance="fill">
-    <mat-label>Name</mat-label>
-    <input matInput formControlName="name" (focus)="addChildForm.get('name').markAsTouched()">
-    <mat-error *ngIf="addChildForm.get('name').hasError('required')">Geben Sie den Namen des Kindes ein .</mat-error>
-    <mat-error *ngIf="addChildForm.get('name').hasError('minlength')">Mindestens 3 Zeichen</mat-error>
+  <mat-label [style.color]="!addChildForm.get('name').valid ? 'black' : 'black'">Name</mat-label>
+    <input matInput formControlName="name">
+    <mat-error *ngIf="formSubmitted && addChildForm.get('name').hasError('required')">Geben Sie den Namen des Kindes ein.</mat-error>
+    <mat-error *ngIf="formSubmitted && addChildForm.get('name').hasError('minlength')">Mindestens 3 Zeichen.</mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-label>Geburtsdatum bitte einstellen</mat-label>
-    <input matInput [matDatepicker]="picker" formControlName="birthDate" (focus)="addChildForm.get('name').markAsTouched()">
+    <mat-label [style.color]="!addChildForm.get('name').valid ? 'black' : 'black'">Geburtsdatum</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="birthDate">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
-    <mat-error *ngIf="addChildForm.get('birthDate').hasError('futureDate')">Geburtstag kann nicht in der Zukunft sein.</mat-error>
+    <mat-error *ngIf="addChildForm.get('birthDate').hasError('required') && formSubmitted">Geburtsdatum bitte auswählen.</mat-error>
+    <mat-error *ngIf="formSubmitted && addChildForm.get('birthDate').hasError('futureDate')">Geburtstag kann nicht in der Zukunft sein.</mat-error>
   </mat-form-field>
 
   <!-- KindergardenId -->
   <mat-form-field appearance="fill">
-    <mat-label>Kindergarten</mat-label>
-    <mat-select formControlName="kindergardenId" (focus)="addChildForm.get('name').markAsTouched()">
+    <mat-label [style.color]="!addChildForm.get('name').valid ? 'black' : 'black'">Kindergarten</mat-label>
+    <mat-select formControlName="kindergardenId">
       <mat-option value="" disabled>Bitte auswählen</mat-option>
       <mat-option *ngFor="let kindergarden of storeService.kindergardens" [value]="kindergarden.id">
         {{kindergarden.name}}, {{kindergarden.address}}
       </mat-option>
     </mat-select>
-    <mat-error *ngIf="addChildForm.get('kindergardenId').hasError('required')">Kindergarten bitte auswählen.</mat-error>
+    <mat-error *ngIf="formSubmitted && addChildForm.get('kindergardenId').hasError('required')">Kindergarten bitte auswählen.</mat-error>
   </mat-form-field>
 
   <button mat-raised-button color="primary" type="submit">Erfassen</button>

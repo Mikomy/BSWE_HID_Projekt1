@@ -65,3 +65,7 @@ button[type=submit]:hover {
       opacity: 1;
     }
 }
+
+.invalid {
+    color: rgb(0, 0, 0); /* Set the color to red for invalid inputs */
+  }
