@@ -1,12 +1,6 @@
 {
   "childs": [
     {
-      "id": "_iL77oo",
-      "name": "Viktor Sachs 3",
-      "birthDate": "2022-06-04",
-      "kindergardenId": 4
-    },
-    {
       "id": "_iL790m",
       "name": "Emily Nilson 4",
       "birthDate": "2019-01-04",
@@ -269,6 +263,12 @@
       "kindergardenId": 3,
       "birthDate": "2020-01-15T23:00:00.000Z",
       "id": "o1j8onp"
+    },
+    {
+      "name": "Ida Sachs",
+      "kindergardenId": 1,
+      "birthDate": "2020-01-13T23:00:00.000Z",
+      "id": "t1MxG-r"
     }
   ],
   "kindergardens": [

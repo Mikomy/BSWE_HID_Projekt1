@@ -26,7 +26,7 @@ import {KindergartenListComponent} from './kindergarten-list/kindergarten-list.c
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 @NgModule({
   declarations: [
@@ -59,7 +59,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     FormsModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatProgressSpinnerModule,
     MatSortModule
   ],
   providers: [],

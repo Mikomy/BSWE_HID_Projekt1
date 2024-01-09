@@ -10,7 +10,8 @@ import { StoreService } from 'src/app/shared/store.service';
 })
 export class AddDataComponent implements OnInit {
   public successMessage: string = '';
-
+  public loading: boolean = false;
+  
   constructor(private formbuilder: FormBuilder, public storeService: StoreService, public backendService: BackendService) {}
 
   openModel(message: string) {
@@ -48,7 +49,9 @@ closeModel() {
 
   public formSubmitted: boolean = false;
   onSubmit() {
+    this.loading = true; 
     this.formSubmitted = true;
+
     if (this.addChildForm.valid) {
       const birthDate = this.addChildForm.get('birthDate')!.value;
       if (this.futureDateValidator({ value: birthDate }) !== null) {
@@ -67,7 +70,9 @@ closeModel() {
          this.addChildForm.reset();
           this.closeModel();
         }, 3000);
-       
+        setTimeout(() => {
+      this.loading = false;
+    }, 2000);
     }
    
   }
