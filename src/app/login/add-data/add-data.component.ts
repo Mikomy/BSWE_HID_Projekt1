@@ -59,11 +59,12 @@ closeModel() {
         this.backendService.addChildData(this.addChildForm.value, this.currentPage);
         this.openModel('Kind ist angemeldet!');
         this.formSubmitted = false;
-        this.addChildForm.markAsPristine();
-        this.addChildForm.markAsUntouched();
-         this.addChildForm.reset();
+        
         setTimeout(() => {
           this.successMessage = '';
+          this.addChildForm.markAsPristine();
+        this.addChildForm.markAsUntouched();
+         this.addChildForm.reset();
           this.closeModel();
         }, 3000);
        

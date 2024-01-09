@@ -48,3 +48,15 @@
     align-items: flex-start;
     margin-top: 50px;
   }
+
+  button[type=anmelden] {
+    margin-left: 100px;
+    background-color: #c2ffbb;
+    color: #000000;
+    cursor: pointer;
+    padding: .8em;
+    border: none;
+    border-radius: 0.7em;
+    transition: background-color 0.3s ease;
+    width: 25%;
+}

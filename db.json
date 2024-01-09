@@ -263,6 +263,12 @@
       "kindergardenId": 2,
       "birthDate": "2020-01-30T23:00:00.000Z",
       "id": "2u19b-K"
+    },
+    {
+      "name": "Charly Zwang",
+      "kindergardenId": 3,
+      "birthDate": "2020-01-15T23:00:00.000Z",
+      "id": "o1j8onp"
     }
   ],
   "kindergardens": [
