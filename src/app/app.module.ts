@@ -24,6 +24,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {KindergartenListComponent} from './kindergarten-list/kindergarten-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HeaderComponent,
     ButtonComponent,
     KindergartenListComponent,
-    PaginationPipe
+    PaginationPipe,
+    FooterComponent
   ],
   imports: [
     BrowserAnimationsModule,
