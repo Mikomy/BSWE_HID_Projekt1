@@ -13,9 +13,10 @@
 }
 
 .mat-toolbar {
-  color: black;
-  background-color: transparent;
+  color: #000000;
+  background-color: #C2E6E6;
   font-size: 24px;
+  height: 14%;
 }
 .grid-container {
   display: grid;
@@ -28,7 +29,9 @@
   justify-content: center;
   align-items: center;
   margin-left: auto;
-  background-color: transparent !important;
+  img {
+    border-radius: 5%;
+  }
 }
 
 .logo {
