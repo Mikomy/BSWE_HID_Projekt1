@@ -25,7 +25,8 @@ import {MatSortModule} from '@angular/material/sort';
 import {KindergartenListComponent} from './kindergarten-list/kindergarten-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
-
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FooterComponent } from './footer/footer.component';
     ButtonComponent,
     KindergartenListComponent,
     PaginationPipe,
-    FooterComponent
+    FooterComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -57,6 +59,7 @@ import { FooterComponent } from './footer/footer.component';
     FormsModule,
     ReactiveFormsModule,
     MatTableModule,
+    MatProgressSpinnerModule,
     MatSortModule
   ],
   providers: [],
