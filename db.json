@@ -272,7 +272,8 @@
       "address": "Oleandergasse 21, 1220 Wien",
       "betreiber": "MA 10 - Wiener Kindergärten",
       "typ": 1,
-      "photoUrl": "assets/images/kindergarten1.jpg"
+      "photoUrl": "assets/images/kindergarten1.jpg",
+      "website": "https://www.waldorfkindergarten1040.at/"
     },
     {
       "id": 2,
@@ -280,7 +281,9 @@
       "address": "Kanitzgasse 1-3, 1230 Wien",
       "betreiber": "Verein Karl Schubertschule für Seelenpflege- bedürftige Kinder und Jugendliche in Wien",
       "typ": 1,
-      "photoUrl": "assets/images/kindergarten2.jpg"
+      "photoUrl": "assets/images/kindergarten2.jpg",
+      "website": "https://karl-schubert-kindergarten.at/de/"
+      
     },
     {
       "id": 3,
@@ -288,7 +291,8 @@
       "address": "Audorfgasse 20, 1210 Wien",
       "betreiber": "MA 10 - Wiener Kindergärten",
       "typ": 2,
-      "photoUrl": "assets/images/kindergarten3.jpg"
+      "photoUrl": "assets/images/kindergarten3.jpg",
+      "website": "https://www.kindergartenplatz-wien.at/kiga/kindergarten-der-stadt-wien-audorfgasse-20-1210-wien.html"
     },
     {
       "id": 4,
@@ -296,7 +300,8 @@
       "address": "Moßbachergasse 20-24, 1140 Wien",
       "betreiber": "MA 10 - Wiener Kindergärten",
       "typ": 2,
-      "photoUrl": "assets/images/kindergarten4.jpg"
+      "photoUrl": "assets/images/kindergarten4.jpg",
+      "website": "https://www.kindergartenplatz-wien.at/kiga/kindergarten-der-stadt-wien-mossbachergasse-20-24-1140-wien.html"
     },
     {
       "id": 5,
@@ -304,7 +309,8 @@
       "address": "Nußdorferstraße 6, 1090 Wien",
       "betreiber": "Montessori Kinderhaus Wien",
       "typ": 1,
-      "photoUrl": "assets/images/kindergarten5.jpg"
+      "photoUrl": "assets/images/kindergarten5.jpg",
+      "website": "https://www.kinderbetreuung.at/onlinesuche/detail/montessori-kinderhaus-wien"
     }
   ]
 }

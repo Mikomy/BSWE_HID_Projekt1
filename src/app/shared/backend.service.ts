@@ -107,4 +107,8 @@ export class BackendService {
           })
         );
     }
+
+    public getKindergartenById(kindergartenId: number): Observable<Kindergarden> {
+      return this.http.get<Kindergarden>(`http://localhost:5000/kindergardens/${kindergartenId}`);
+    }
   }
