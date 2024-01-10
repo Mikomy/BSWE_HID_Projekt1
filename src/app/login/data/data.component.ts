@@ -15,7 +15,7 @@ import { Child } from 'src/app/shared/interfaces/Child';
   styleUrls: ['./data.component.scss']
 })
 export class DataComponent implements OnInit, AfterViewInit {
-  public loading: boolean = false;
+
 
   constructor(
     public storeService: StoreService, 
@@ -90,10 +90,10 @@ export class DataComponent implements OnInit, AfterViewInit {
   }
 
   public cancelRegistration(childId: string) {
-    this.loading = true;
+    this.storeService.isLoading = true;
     setTimeout(() => {
-      this.loading = false;
-    }, 2000);
+      this.storeService.isLoading = false;
+    }, 1000);
     this.backendService.deleteChildData(childId, this.currentPage).subscribe(() => {
       this.loadData();
     });

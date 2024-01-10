@@ -10,7 +10,7 @@ import { StoreService } from 'src/app/shared/store.service';
 })
 export class AddDataComponent implements OnInit {
   public successMessage: string = '';
-  public loading: boolean = false;
+  
   
   constructor(private formbuilder: FormBuilder, public storeService: StoreService, public backendService: BackendService) {}
 
@@ -49,7 +49,6 @@ closeModel() {
 
   public formSubmitted: boolean = false;
   onSubmit() {
-    this.loading = true; 
     this.formSubmitted = true;
 
     if (this.addChildForm.valid) {
@@ -59,10 +58,17 @@ closeModel() {
         this.openModel('Geburtsdatum liegt in der Zukunft!');
       } else {
         // Andernfalls, Daten hinzufügen und Erfolgsnachricht ausgeben
+       
+        
+        this.storeService.isLoading = true; 
+        setTimeout(() => {
+          this.storeService.isLoading = false;
+    }, 1000);
+
         this.backendService.addChildData(this.addChildForm.value, this.currentPage);
         this.openModel('Kind ist angemeldet!');
         this.formSubmitted = false;
-        
+
         setTimeout(() => {
           this.successMessage = '';
           this.addChildForm.markAsPristine();
@@ -70,9 +76,7 @@ closeModel() {
          this.addChildForm.reset();
           this.closeModel();
         }, 3000);
-        setTimeout(() => {
-      this.loading = false;
-    }, 2000);
+      
     }
    
   }
