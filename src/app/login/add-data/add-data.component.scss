@@ -57,6 +57,11 @@ button[type=submit]:hover {
 .form-group {
     margin-bottom: 20px;
 }
+
+.mat-form-field.ng-valid {
+    border-color: #4CAF50; /* Green border for valid input */
+  }
+  
 @keyframes fadeIn {
     from {
       opacity: 0;

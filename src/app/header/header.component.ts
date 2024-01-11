@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RouteTitleService } from '../shared/routeTiteleService';
+
 
 @Component({
   selector: 'app-header',
@@ -10,9 +12,10 @@ export class HeaderComponent implements OnInit {
   public title: string = 'Kindergarden-App';
   public imagePath: string = "./../assets/images/kindergarden.jpg";
 
-  constructor() { }
+  constructor(private routeTitleService: RouteTitleService) { }
 
   ngOnInit(): void {
+    this.routeTitleService.setTitleForRoute();
   }
 
   toggleMenu(): void {
