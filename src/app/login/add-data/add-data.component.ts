@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BackendService } from 'src/app/shared/backend.service';
 import { StoreService } from 'src/app/shared/store.service';
+import { NgZone } from '@angular/core';
 
 @Component({
   selector: 'app-add-data',
@@ -12,7 +13,7 @@ export class AddDataComponent implements OnInit {
   public successMessage: string = '';
   
   
-  constructor(private formbuilder: FormBuilder, public storeService: StoreService, public backendService: BackendService) {}
+  constructor(private ngZone: NgZone, private formbuilder: FormBuilder, public storeService: StoreService, public backendService: BackendService) {}
 
   openModel(message: string) {
    const modelDiv = document.getElementById('myModal');
@@ -50,7 +51,7 @@ closeModel() {
   public formSubmitted: boolean = false;
   onSubmit() {
     this.formSubmitted = true;
-
+  
     if (this.addChildForm.valid) {
       const birthDate = this.addChildForm.get('birthDate')!.value;
       if (this.futureDateValidator({ value: birthDate }) !== null) {
@@ -58,27 +59,23 @@ closeModel() {
         this.openModel('Geburtsdatum liegt in der Zukunft!');
       } else {
         // Andernfalls, Daten hinzufügen und Erfolgsnachricht ausgeben
-       
-        
-        this.storeService.isLoading = true; 
-        setTimeout(() => {
-          this.storeService.isLoading = false;
-    }, 1000);
-
-        this.backendService.addChildData(this.addChildForm.value, this.currentPage);
-        this.openModel('Kind ist angemeldet!');
-        this.formSubmitted = false;
-
-        setTimeout(() => {
-          this.successMessage = '';
-          this.addChildForm.markAsPristine();
-        this.addChildForm.markAsUntouched();
-         this.addChildForm.reset();
-          this.closeModel();
-        }, 3000);
-      
+        this.ngZone.run(() => {
+          this.storeService.setLoading(true);
+          this.backendService.addChildData(this.addChildForm.value, this.currentPage).subscribe(() => {
+            this.storeService.setLoading(false);
+            this.openModel('Kind ist angemeldet!');
+            this.formSubmitted = false;
+  
+            setTimeout(() => {
+              this.successMessage = '';
+              this.addChildForm.markAsPristine();
+              this.addChildForm.markAsUntouched();
+              this.addChildForm.reset();
+              this.closeModel();
+            }, 3000);
+          });
+        });
+      }
     }
-   
-  }
   }
 }

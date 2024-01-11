@@ -22,25 +22,25 @@ export class BackendService {
   }
 
   public getChildren(page: number, sortBy?: string, sortOrder?: string): Observable<Child[]> {
-    this.storeService.isLoading = true; 
+    this.storeService.setLoading(true);
     const sortParams = sortBy && sortOrder ? `&_sort=${sortBy}&_order=${sortOrder}` : '';
     return this.http.get<ChildResponse[]>(`http://localhost:5000/childs?_expand=kindergarden&_page=${page}&_limit=${CHILDREN_PER_PAGE}${sortParams}`, { observe: 'response' })
       .pipe(
         map(data => {
           this.storeService.children = data.body!;
           this.storeService.childrenTotalCount = Number(data.headers.get('X-Total-Count'));
-          this.storeService.isLoading = false;
+          this.storeService.setLoading(false);
           return data.body!; // Return the array of Child
         })
       );
   }
 
   public addChildData(child: Child, page: number): Observable<any> {
-    this.storeService.isLoading = true; // Set loading to true before adding child
+    this.storeService.setLoading(true);// Set loading to true before adding child
     return this.http.post('http://localhost:5000/childs', child).pipe(
       map(_ => {
         this.getChildren(page).subscribe(() => {
-          this.storeService.isLoading = false; // Set loading to false after adding child
+          this.storeService.setLoading(false);// Set loading to false after adding child
         });
       })
     );
@@ -50,11 +50,11 @@ export class BackendService {
   
 
   public deleteChildData(childId: string, page: number): Observable<void> {
-    this.storeService.isLoading = true; // Set loading to true before deleting child
+    this.storeService.setLoading(true); // Set loading to true before deleting child
     return this.http.delete(`http://localhost:5000/childs/${childId}`, { observe: 'response' })
       .pipe(
         map(response => {
-          this.storeService.isLoading = false; // Set loading to false after deleting child
+          this.storeService.setLoading(false); // Set loading to false after deleting child
         })
       );
   }
