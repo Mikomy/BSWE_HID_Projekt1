@@ -6,7 +6,7 @@ import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Child } from 'src/app/shared/interfaces/Child';
-
+import { NgZone } from '@angular/core';
 
 
 @Component({
@@ -19,7 +19,8 @@ export class DataComponent implements OnInit, AfterViewInit {
 
   constructor(
     public storeService: StoreService, 
-    private backendService: BackendService,  
+    private backendService: BackendService, 
+    private ngZone: NgZone, 
     private _liveAnnouncer: LiveAnnouncer
     ) {}
 
@@ -90,12 +91,12 @@ export class DataComponent implements OnInit, AfterViewInit {
   }
 
   public cancelRegistration(childId: string) {
-    this.storeService.isLoading = true;
-    setTimeout(() => {
-      this.storeService.isLoading = false;
-    }, 1000);
+    this.ngZone.run(() => {
+      this.storeService.setLoading(true);
     this.backendService.deleteChildData(childId, this.currentPage).subscribe(() => {
       this.loadData();
+      this.storeService.setLoading(false);
+      });
     });
   }
 
