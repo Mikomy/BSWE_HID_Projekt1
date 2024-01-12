@@ -7,9 +7,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'kindergarten-list', component: KindergartenListComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'login', component: LoginComponent, data: { title: 'ANMELDUNG' } },
+  { path: 'kindergarten-list', component: KindergartenListComponent, data: { title: 'KINDERGÄRTEN ENTDECKEN' } },
+  { path: 'dashboard', component: DashboardComponent, data: { title: 'STARTSEITE' } },
   { path: 'about', component: AboutPageComponent }
 ];
 

@@ -20,7 +20,7 @@ export class RouteTitleService {
   }
 
   private getTitleForRoute(route: any): string {
-    if (route.url === '/dashboard') this.pageTitle = 'DASHBOARD'; 
+    if (route.url === '/dashboard') this.pageTitle = 'STARTSEITE'; 
     if (route.url === '/kindergarten-list') this.pageTitle = 'KINDERGÄRTEN ENTDECKEN'; 
     if (route.url === '/login') this.pageTitle = 'ANMELDUNG'; 
     return this.pageTitle;
