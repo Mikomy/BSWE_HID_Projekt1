@@ -12,5 +12,4 @@ export class PaginationPipe implements PipeTransform {
       }
       return res;
   }
-
 }
